@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAKANZIPRO GAMING</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090014;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#5100a0,#120020)}
+h1{color:#d9a5ff;text-shadow:0 0 15px #a020f0}
+header p{color:#ddd}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;padding:15px}
+button{background:#310052;color:white;border:1px solid #b44cff;padding:12px 16px;border-radius:12px;font-weight:bold}
+button.active,button:hover{background:#8a20d0}
+input{display:block;width:90%;max-width:450px;margin:10px auto;padding:13px;border-radius:10px;border:1px solid #a020f0;background:#18002b;color:white}
+h2{text-align:center;color:#d9a5ff}
+#games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;padding:14px}
+.card{background:#1b0030;border:1px solid #7624a8;border-radius:14px;overflow:hidden;text-align:center;padding-bottom:15px}
+.cover{height:115px;display:grid;place-items:center;font-size:42px;background:linear-gradient(135deg,#4c008b,#120020)}
+.card h3{font-size:15px;padding:0 7px;min-height:36px}
+.card p{font-size:12px;color:#cba9df}
+.card button{font-size:12px}
+footer{text-align:center;padding:25px;color:#aaa}
+@media(min-width:650px){#games{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header>
+<h1>MAKANZIPRO GAMING</h1>
+<p>TON UNIVERS DE JEUX 🎮</p>
+<p>PSP • PS2 • PS3 • APK MODIFIÉS</p>
+</header>
+
+<nav id="filters">
+<button class="active" data-cat="TOUS">TOUS</button>
+<button data-cat="PSP">PSP</button>
+<button data-cat="PS2">PS2</button>
+<button data-cat="PS3">PS3</button>
+<button data-cat="APK">APK MODIFIÉS</button>
+</nav>
+
+<input id="search" placeholder="🔎 Rechercher un jeu...">
+<h2>🔥 CATALOGUE DES JEUX</h2>
+<div id="games"></div>
+
+<footer>© 2026 MAKANZIPRO GAMING</footer>
+
+<script>
+const jeux = [
+ {nom:"God of War: Ghost of Sparta",cat:"PSP",emoji:"⚔️"},
+ {nom:"LEGO Batman",cat:"PSP",emoji:"🦇"},
+ {nom:"Cars",cat:"PSP",emoji:"🏎️"},
+ {nom:"GTA Vice City Stories",cat:"PSP",emoji:"🚘"},
+ {nom:"Downhill Domination",cat:"PS2",emoji:"🚵"},
+ {nom:"Resident Evil 4",cat:"PS2",emoji:"🎮"},
+ {nom:"PS2 Football",cat:"PS2",emoji:"⚽"},
+ {nom:"Jeu PS3 à ajouter",cat:"PS3",emoji:"🎮"},
+ {nom:"eFootball ZIRU 27",cat:"APK",emoji:"⚽"},
+ {nom:"Kipas Football",cat:"APK",emoji:"🏆"}
+];
+
+let categorie="TOUS";
+const zone=document.getElementById("games");
+
+function afficher(){
+ const recherche=document.getElementById("search").value.toLowerCase();
+ zone.innerHTML="";
+ const resultat=jeux.filter(j=>
+  (categorie==="TOUS"||j.cat===categorie)&&
+  j.nom.toLowerCase().includes(recherche)
+ );
+ resultat.forEach(j=>{
+  const carte=document.createElement("article");
+  carte.className="card";
+  const couverture=document.createElement("div");
+  couverture.className="cover";
+  couverture.textContent=j.emoji;
+  const titre=document.createElement("h3");
+  titre.textContent=j.nom;
+  const type=document.createElement("p");
+  type.textContent=j.cat;
+  const bouton=document.createElement("button");
+  bouton.textContent="Lien bientôt disponible";
+  bouton.disabled=true;
+  carte.append(couverture,titre,type,bouton);
+  zone.appendChild(carte);
+ });
+ if(resultat.length===0) zone.textContent="Aucun jeu trouvé.";
+}
+
+document.querySelectorAll("#filters button").forEach(b=>{
+ b.addEventListener("click",()=>{
+  categorie=b.dataset.cat;
+  document.querySelectorAll("#filters button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");
+  afficher();
+ });
+});
+document.getElementById("search").addEventListener("input",afficher);
+afficher();
+</script>
+</body>
+</html>
