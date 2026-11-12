@@ -4,175 +4,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100020">
+<meta name="theme-color" content="#100b20">
 <title>MAKANZIPRO GAMING</title>
-
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;background:#090012;color:white;
+ margin:0;background:#0b0814;color:white;
  font-family:Arial,sans-serif;
 }
 header{
- text-align:center;padding:35px 15px 28px;
- background:linear-gradient(135deg,#5800a8,#160027,#08000f);
- border-bottom:2px solid #a020f0;
+ text-align:center;padding:30px 15px;
+ background:linear-gradient(135deg,#180d35,#45108a,#100b20);
+ border-bottom:2px solid #a855f7;
 }
-.logo{font-size:13px;letter-spacing:5px;color:#d9a5ff}
-h1{font-size:27px;color:#e3b5ff;text-shadow:0 0 15px #a020f0}
-header p{color:#d7c6e5}
-nav{
- display:flex;flex-wrap:wrap;justify-content:center;
- gap:9px;padding:17px 10px;
-}
-button{
- border:1px solid #a020f0;background:#25003d;
- color:white;padding:12px 15px;border-radius:10px;
- font-weight:bold;cursor:pointer;
-}
-button.active,button:hover{background:#8200cc}
+header h1{color:#d8a7ff;font-size:30px;margin:5px}
+header p{color:#ddd}
+.logo{font-size:42px}
 .search{
  display:block;width:90%;max-width:500px;
- margin:5px auto 20px;padding:14px;
- border-radius:12px;border:1px solid #a020f0;
- background:#190027;color:white;font-size:15px;
+ margin:22px auto;padding:14px;
+ border-radius:12px;border:1px solid #9b4dff;
+ background:#171126;color:white;font-size:16px;
 }
-h2{text-align:center;color:#d9a5ff}
-#games{
- display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
- gap:13px;padding:14px;max-width:1000px;margin:auto;
+.categories{
+ display:flex;justify-content:center;flex-wrap:wrap;
+ gap:9px;padding:10px;
+}
+.categories button{
+ background:#211436;color:white;border:1px solid #914cff;
+ padding:11px 16px;border-radius:20px;
+}
+.categories button.active,.categories button:hover{
+ background:#8b35e8;
+}
+h2{text-align:center;color:#d8a7ff}
+.catalogue{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:15px;padding:15px;max-width:1000px;margin:auto;
 }
 .card{
- background:#190027;border:1px solid #7020a0;
- border-radius:14px;overflow:hidden;text-align:center;
- box-shadow:0 0 10px #39005c;
+ background:#191326;border:1px solid #57328a;
+ border-radius:15px;overflow:hidden;text-align:center;
+ padding-bottom:15px;
 }
 .cover{
- height:145px;display:flex;align-items:center;
- justify-content:center;flex-direction:column;
- background:linear-gradient(145deg,#6200a5,#170025);
- font-size:48px;
+ height:120px;display:flex;align-items:center;
+ justify-content:center;font-size:55px;
+ background:linear-gradient(135deg,#34145b,#100b20);
 }
-.cover small{font-size:11px;letter-spacing:2px;color:#e4c5ff}
-.card h3{font-size:14px;padding:0 7px;min-height:34px}
-.tag{font-size:11px;color:#d5a2ff}
-.card button{margin:5px 5px 14px;font-size:11px}
-.card button:disabled{opacity:.7;cursor:not-allowed}
-.empty{text-align:center;color:#c9a8df;padding:30px}
+.card h3{font-size:16px;padding:0 8px;min-height:38px}
+.card p{color:#c4b5d8;font-size:13px}
+.card a{
+ display:inline-block;text-decoration:none;
+ background:#8b35e8;color:white;
+ padding:10px 13px;border-radius:9px;
+ font-size:13px;font-weight:bold;
+}
+.card a:hover{background:#a855f7}
+.empty{text-align:center;color:#bba9d0;padding:25px}
 footer{
- text-align:center;padding:28px;color:#9d83b2;
- border-top:1px solid #410066;margin-top:25px;
-}
-@media(min-width:650px){
- #games{grid-template-columns:repeat(3,1fr)}
- h1{font-size:36px}
+ text-align:center;padding:25px;color:#aaa;
+ border-top:1px solid #392451;margin-top:30px;
 }
 </style>
 </head>
-
 <body>
 
 <header>
- <div class="logo">WELCOME TO</div>
+ <div class="logo">🎮</div>
  <h1>MAKANZIPRO GAMING</h1>
- <p>TON UNIVERS DE JEUX 🎮</p>
- <p>PLAY • COMPETE • ENJOY</p>
+ <p>TON UNIVERS GAMING COMMENCE ICI</p>
 </header>
 
-<nav id="filters">
- <button class="active" data-cat="TOUS">TOUS</button>
- <button data-cat="PSP">PSP</button>
- <button data-cat="PS2">PS2</button>
- <button data-cat="PS3">PS3</button>
- <button data-cat="APK">APK MODIFIÉS</button>
+<input class="search" id="search"
+ placeholder="🔎 Rechercher un jeu..."
+ oninput="afficher()">
+
+<nav class="categories">
+ <button class="active" onclick="filtrer('TOUS',this)">TOUS</button>
+ <button onclick="filtrer('PSP',this)">PSP</button>
+ <button onclick="filtrer('PS2',this)">PS2</button>
+ <button onclick="filtrer('PS3',this)">PS3</button>
+ <button onclick="filtrer('APK',this)">APK MODIFIÉS</button>
 </nav>
 
-<input class="search" id="search"
- placeholder="🔎 Rechercher un jeu...">
-
 <h2>🔥 CATALOGUE DES JEUX</h2>
-
-<div id="games"></div>
+<main class="catalogue" id="catalogue"></main>
 
 <footer>
- <p>MAKANZIPRO GAMING</p>
- <p>© 2026 • Tous droits réservés</p>
+ <h3>MAKANZIPRO GAMING</h3>
+ <p>© 2026 - Tous droits réservés</p>
+ <p>Play • Compete • Enjoy</p>
 </footer>
 
 <script>
-const jeux=[
- {nom:"God of War: Ghost of Sparta",cat:"PSP",emoji:"⚔️"},
- {nom:"LEGO Batman",cat:"PSP",emoji:"🦇"},
- {nom:"Cars",cat:"PSP",emoji:"🏎️"},
- {nom:"GTA Vice City Stories",cat:"PSP",emoji:"🚘"},
- {nom:"Downhill Domination",cat:"PS2",emoji:"🚵"},
- {nom:"Resident Evil 4",cat:"PS2",emoji:"🎮"},
- {nom:"PS2 Football",cat:"PS2",emoji:"⚽"},
- {nom:"Jeux à ajouter",cat:"PS3",emoji:"🎮"},
- {nom:"eFootball ZIRU 27",cat:"APK",emoji:"⚽"},
- {nom:"Kipas Football",cat:"APK",emoji:"🏆"}
+const jeux = [
+ {
+  nom:"God of War: Ghost of Sparta",
+  categorie:"PSP",image:"⚔️",
+  lien:"https://www.romspedia.com/roms/playstation-portable/god-of-war-ghost-of-sparta-original/download?speed=fast"
+ },
+ {
+  nom:"LEGO Batman",
+  categorie:"PSP",image:"🦇",
+  lien:"https://www.romspedia.com/roms/playstation-portable/lego-batman-the-video-game/download?speed=fast"
+ },
+ {
+  nom:"Cars",
+  categorie:"PSP",image:"🏎️",
+  lien:"https://www.romspedia.com/roms/playstation-portable/cars-v1-02/download?speed=fast"
+ },
+ {
+  nom:"GTA Vice City Stories",
+  categorie:"PSP",image:"🚗",
+  lien:"https://www.romspedia.com/roms/playstation-portable/grand-theft-auto-vice-city-stories-europe-v1-02/download?speed=fast"
+ },
+ {
+  nom:"PS2 Football",
+  categorie:"PS2",image:"⚽",
+  lien:"https://modsfire.com/d/WpRB05ZE84Ma2D1"
+ },
+ {
+  nom:"Downhill Domination",
+  categorie:"PS2",image:"🚴",
+  lien:"https://www.romspedia.com/roms/playstation-2/downhill-domination/download?speed=fast"
+ },
+ {
+  nom:"Resident Evil 4",
+  categorie:"PS2",image:"🎮",
+  lien:"https://www.romspedia.com/roms/playstation-2/resident-evil-4/download?speed=fast"
+ }
 ];
 
-let categorie="TOUS";
+let categorieActive="TOUS";
+
+function filtrer(categorie, bouton){
+ categorieActive=categorie;
+ document.querySelectorAll(".categories button")
+ .forEach(b=>b.classList.remove("active"));
+ bouton.classList.add("active");
+ afficher();
+}
 
 function afficher(){
- const recherche=document.getElementById("search").value.toLowerCase();
- const zone=document.getElementById("games");
- zone.innerHTML="";
+ const recherche=document.getElementById("search")
+ .value.toLowerCase();
 
- const resultat=jeux.filter(j=>
-  (categorie==="TOUS"||j.cat===categorie)&&
-  j.nom.toLowerCase().includes(recherche)
- );
+ const liste=jeux.filter(jeu=>{
+  return (categorieActive==="TOUS" ||
+  jeu.categorie===categorieActive) &&
+  jeu.nom.toLowerCase().includes(recherche);
+ });
 
- if(resultat.length===0){
-  zone.innerHTML='<div class="empty">Aucun jeu trouvé.</div>';
+ const catalogue=document.getElementById("catalogue");
+
+ if(liste.length===0){
+  catalogue.innerHTML='<p class="empty">Aucun jeu trouvé.</p>';
   return;
  }
 
- resultat.forEach(j=>{
-  const carte=document.createElement("article");
-  carte.className="card";
-
-  const couverture=document.createElement("div");
-  couverture.className="cover";
-  couverture.textContent=j.emoji;
-
-  const etiquette=document.createElement("small");
-  etiquette.textContent="MAKANZIPRO";
-  couverture.appendChild(etiquette);
-
-  const titre=document.createElement("h3");
-  titre.textContent=j.nom;
-
-  const type=document.createElement("p");
-  type.className="tag";
-  type.textContent=j.cat;
-
-  const bouton=document.createElement("button");
-  bouton.textContent="LIEN À AJOUTER";
-  bouton.disabled=true;
-
-  carte.append(couverture,titre,type,bouton);
-  zone.appendChild(carte);
- });
+ catalogue.innerHTML=liste.map(jeu=>`
+  <article class="card">
+   <div class="cover">${jeu.image}</div>
+   <h3>${jeu.nom}</h3>
+   <p>${jeu.categorie}</p>
+   <a href="${jeu.lien}" target="_blank"
+   rel="noopener noreferrer">VOIR LE LIEN</a>
+  </article>
+ `).join("");
 }
-
-document.querySelectorAll("#filters button").forEach(b=>{
- b.addEventListener("click",()=>{
-  categorie=b.dataset.cat;
-  document.querySelectorAll("#filters button")
-   .forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");
-  afficher();
- });
-});
-
-document.getElementById("search")
- .addEventListener("input",afficher);
 
 afficher();
 </script>
-
 </body>
 </html>
