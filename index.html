@@ -4,6 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160b30">
+<meta name="description" content="MAKANZIPRO GAMING : catalogue de jeux PSP et PS2.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>MAKANZIPRO GAMING</title>
 
 <style>
@@ -361,5 +366,14 @@ buttons.forEach(button => {
 });
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(err => {
+      console.log('Service worker non enregistré :', err);
+    });
+  });
+}
+</script>
 </body>
 </html>

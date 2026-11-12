@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "MAKANZIPRO GAMING",
+  "short_name": "MAKANZIPRO",
+  "description": "Catalogue de jeux PSP et PS2 de MAKANZIPRO GAMING.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080610",
+  "theme_color": "#160b30",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
