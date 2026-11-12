@@ -4,89 +4,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10091d">
 <title>MAKANZIPRO GAMING</title>
 
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;background:#0b0712;color:white;
- font-family:Arial,sans-serif;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-header{
- text-align:center;padding:32px 12px;
- background:linear-gradient(135deg,#160b2d,#6320a0,#10091d);
- border-bottom:2px solid #bd72ff;
+
+body {
+  background: #080610;
+  color: white;
+  font-family: Arial, sans-serif;
 }
-.logo{font-size:48px}
-header h1{color:#e2bdff;font-size:29px;margin:8px}
-header p{color:#eee}
-.search{
- display:block;width:90%;max-width:550px;
- margin:22px auto;padding:14px;
- border-radius:12px;border:1px solid #a855f7;
- background:#191126;color:white;font-size:16px;
+
+header {
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg, #160b30, #390b60, #10091d);
+  border-bottom: 2px solid #a855f7;
 }
-.categories{
- display:flex;justify-content:center;
- flex-wrap:wrap;gap:9px;padding:10px;
+
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+  color: #d9a5ff;
+  text-shadow: 0 0 15px #a855f7;
 }
-.categories button{
- background:#211532;color:white;
- border:1px solid #914cff;
- padding:11px 16px;border-radius:20px;
+
+header p {
+  color: #ddd;
+  margin-top: 10px;
 }
-.categories button.active{
- background:#8b35e8;
+
+.search {
+  display: block;
+  width: 90%;
+  max-width: 550px;
+  margin: 22px auto;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #914cff;
+  background: #191126;
+  color: white;
+  font-size: 16px;
 }
-h2{text-align:center;color:#d8a7ff}
-.catalogue{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
- gap:15px;padding:15px;
- max-width:1050px;margin:auto;
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
-.card{
- background:#191326;border:1px solid #57328a;
- border-radius:15px;overflow:hidden;
- text-align:center;padding-bottom:16px;
+
+.categories button {
+  background: #211532;
+  color: white;
+  border: 1px solid #914cff;
+  padding: 11px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
 }
-.cover{
- height:175px;display:flex;
- flex-direction:column;align-items:center;
- justify-content:center;gap:10px;
- background:linear-gradient(145deg,#55218a,#130b20);
- border-bottom:2px solid #9b4dff;
+
+.categories button.active,
+.categories button:hover {
+  background: #8b35dc;
 }
-.cover .emoji{font-size:55px}
-.cover span:last-child{
- font-size:12px;letter-spacing:2px;color:#e5c9ff;
+
+h2 {
+  text-align: center;
+  margin: 25px 10px;
+  color: #d9a5ff;
 }
-.card h3{font-size:16px;padding:0 9px}
-.description{
- color:#c9bdd8;font-size:13px;
- line-height:1.5;padding:0 12px;
- min-height:75px;
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 16px;
+  padding: 15px;
+  max-width: 1100px;
+  margin: auto;
 }
-.platform{
- color:#d8a7ff;font-size:12px;
- font-weight:bold;
+
+.card {
+  background: #171020;
+  border: 1px solid #43245f;
+  border-radius: 13px;
+  overflow: hidden;
+  transition: 0.2s;
 }
-.card a{
- display:inline-block;text-decoration:none;
- background:#8b35e8;color:white;
- padding:10px 13px;border-radius:9px;
- font-size:13px;font-weight:bold;
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #bd72ff;
+  box-shadow: 0 0 15px #6425a5;
 }
-.card a:hover{background:#ad65f5}
-.empty{
- text-align:center;color:#cbb8df;
- padding:30px;grid-column:1/-1;
+
+.cover {
+  width: 100%;
+  height: 190px;
+  background: #100b18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-footer{
- text-align:center;padding:25px;
- color:#aaa;border-top:1px solid #392451;
- margin-top:30px;
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info {
+  padding: 12px;
+}
+
+.info h3 {
+  font-size: 15px;
+  margin-bottom: 9px;
+  color: #e6caff;
+}
+
+.tag {
+  display: inline-block;
+  background: #48216b;
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 15px;
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+
+.info p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ccc;
+  min-height: 55px;
+}
+
+.info a {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  padding: 10px;
+  background: linear-gradient(90deg, #7628c9, #a344ed);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.info a:hover {
+  background: #bd72ff;
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  padding: 35px;
+  color: #ccc;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 35px;
+  background: #120b1c;
+  border-top: 1px solid #7135a3;
+  color: #aaa;
+  font-size: 13px;
 }
 </style>
 </head>
@@ -94,129 +184,182 @@ footer{
 <body>
 
 <header>
- <div class="logo">🎮</div>
- <h1>MAKANZIPRO GAMING</h1>
- <p>TON UNIVERS GAMING COMMENCE ICI</p>
+  <div class="logo">🎮 MAKANZIPRO GAMING</div>
+  <p>TON UNIVERS GAMING • PLAY • COMPETE • WIN</p>
 </header>
 
-<input class="search" id="search"
- placeholder="🔎 Rechercher un jeu..."
- oninput="afficher()">
+<input
+  type="search"
+  id="search"
+  class="search"
+  placeholder="🔍 Rechercher un jeu..."
+>
 
-<nav class="categories">
- <button class="active" onclick="filtrer('TOUS',this)">TOUS</button>
- <button onclick="filtrer('PSP',this)">PSP</button>
- <button onclick="filtrer('PS2',this)">PS2</button>
- <button onclick="filtrer('PS3',this)">PS3</button>
- <button onclick="filtrer('APK',this)">APK MODIFIÉS</button>
-</nav>
+<div class="categories">
+  <button class="active" data-category="TOUS">TOUS</button>
+  <button data-category="PSP">PSP</button>
+  <button data-category="PS2">PS2</button>
+</div>
 
-<h2>🔥 CATALOGUE DES JEUX</h2>
-<main class="catalogue" id="catalogue"></main>
+<h2>🔥 BIBLIOTHÈQUE DES JEUX</h2>
+
+<main class="games" id="games">
+
+  <article class="card" data-category="PSP">
+    <div class="cover">
+      <img src="images/god-of-war-ghost-of-sparta-psp-cover.webp"
+           alt="God of War Ghost of Sparta"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PSP</span>
+      <h3>God of War: Ghost of Sparta</h3>
+      <p>Retrouve Kratos dans une aventure pleine d'action et de mythologie.</p>
+      <a href="https://en.wikipedia.org/wiki/God_of_War:_Ghost_of_Sparta" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PSP">
+    <div class="cover">
+      <img src="images/lego-batman-the-video-game-psp-cover.webp"
+           alt="LEGO Batman"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PSP</span>
+      <h3>LEGO Batman</h3>
+      <p>Explore Gotham City et joue avec Batman et ses alliés.</p>
+      <a href="https://en.wikipedia.org/wiki/Lego_Batman:_The_Videogame" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PSP">
+    <div class="cover">
+      <img src="images/cars-psp-cover-v1.webp"
+           alt="Cars"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PSP</span>
+      <h3>Cars</h3>
+      <p>Participe à des courses et découvre l'univers de Flash McQueen.</p>
+      <a href="https://en.wikipedia.org/wiki/Cars_(video_game)" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PSP">
+    <div class="cover">
+      <img src="images/grand-theft-auto-vice-city-stories-psp-cover.webp"
+           alt="GTA Vice City Stories"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PSP</span>
+      <h3>GTA Vice City Stories</h3>
+      <p>Découvre Vice City dans une aventure en monde ouvert.</p>
+      <a href="https://en.wikipedia.org/wiki/Grand_Theft_Auto:_Vice_City_Stories" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PS2">
+    <div class="cover">
+      <img src="images/IMG_20261102_213201_136.jpg"
+           alt="PS2 Football"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PS2</span>
+      <h3>PS2 Football</h3>
+      <p>Retrouve le plaisir du football sur PlayStation 2.</p>
+      <a href="https://en.wikipedia.org/wiki/Association_football_video_game" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PS2">
+    <div class="cover">
+      <img src="images/downhill-domination-ps2-cover.webp"
+           alt="Downhill Domination"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PS2</span>
+      <h3>Downhill Domination</h3>
+      <p>Dévale les pistes dans des courses de VTT rapides.</p>
+      <a href="https://en.wikipedia.org/wiki/Downhill_Domination" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+  <article class="card" data-category="PS2">
+    <div class="cover">
+      <img src="images/resident-evil-4-ps2-cover.webp"
+           alt="Resident Evil 4"
+           loading="lazy">
+    </div>
+    <div class="info">
+      <span class="tag">PS2</span>
+      <h3>Resident Evil 4</h3>
+      <p>Vis une aventure de survie et de suspense.</p>
+      <a href="https://en.wikipedia.org/wiki/Resident_Evil_4" target="_blank" rel="noopener">EN SAVOIR PLUS</a>
+    </div>
+  </article>
+
+</main>
+
+<div class="empty" id="empty">
+  Aucun jeu trouvé.
+</div>
 
 <footer>
- <h3>MAKANZIPRO GAMING</h3>
- <p>PLAY • COMPETE • ENJOY</p>
- <p>© 2026 MAKANZIPRO</p>
+  <p>© 2026 MAKANZIPRO GAMING</p>
+  <p>Merci de visiter notre univers gaming !</p>
 </footer>
 
 <script>
-const jeux = [
-{
- nom:"God of War: Ghost of Sparta",
- plateforme:"PSP",
- emoji:"⚔️",
- description:"Retrouve Kratos dans une aventure pleine d'action. Explore des lieux mystérieux et affronte de puissants adversaires.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=God+of+War+Ghost+of+Sparta"
-},
-{
- nom:"LEGO Batman",
- plateforme:"PSP",
- emoji:"🦇",
- description:"Rejoins Batman et Robin dans une aventure LEGO. Résous des énigmes et protège Gotham City.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=LEGO+Batman+The+Video+Game"
-},
-{
- nom:"Cars",
- plateforme:"PSP",
- emoji:"🏎️",
- description:"Retrouve Flash McQueen et participe à des courses dans l'univers de Cars.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=Cars+jeu+vidéo"
-},
-{
- nom:"GTA Vice City Stories",
- plateforme:"PSP",
- emoji:"🚘",
- description:"Découvre Vice City dans une aventure en monde ouvert avec Victor Vance.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=Grand+Theft+Auto+Vice+City+Stories"
-},
-{
- nom:"PS2 Football",
- plateforme:"PS2",
- emoji:"⚽",
- description:"Un jeu de football sur PlayStation 2. Découvre son édition et ses caractéristiques.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=Jeu+de+football+PlayStation+2"
-},
-{
- nom:"Downhill Domination",
- plateforme:"PS2",
- emoji:"🚵",
- description:"Participe à des courses de VTT rapides sur des pistes difficiles et réalise des figures.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=Downhill+Domination"
-},
-{
- nom:"Resident Evil 4",
- plateforme:"PS2",
- emoji:"🧟",
- description:"Leon Kennedy part en mission pour retrouver la fille du président dans une aventure de survie.",
- recherche:"https://fr.wikipedia.org/w/index.php?search=Resident+Evil+4"
-}
-];
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+const buttons = document.querySelectorAll(".categories button");
+const empty = document.getElementById("empty");
 
-let categorieActive="TOUS";
+let selectedCategory = "TOUS";
 
-function filtrer(categorie,bouton){
- categorieActive=categorie;
- document.querySelectorAll(".categories button")
- .forEach(b=>b.classList.remove("active"));
- bouton.classList.add("active");
- afficher();
+function filterGames() {
+  const query = search.value.toLowerCase();
+  let visible = 0;
+
+  cards.forEach(card => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+    const description = card.querySelector("p").textContent.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchesSearch =
+      title.includes(query) || description.includes(query);
+
+    const matchesCategory =
+      selectedCategory === "TOUS" || category === selectedCategory;
+
+    const show = matchesSearch && matchesCategory;
+
+    card.style.display = show ? "" : "none";
+
+    if (show) visible++;
+  });
+
+  empty.style.display = visible === 0 ? "block" : "none";
 }
 
-function afficher(){
- const recherche=document.getElementById("search")
- .value.toLowerCase();
+search.addEventListener("input", filterGames);
 
- const liste=jeux.filter(jeu=>{
-  return (categorieActive==="TOUS" ||
-  jeu.plateforme===categorieActive) &&
-  jeu.nom.toLowerCase().includes(recherche);
- });
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    selectedCategory = button.dataset.category;
 
- const catalogue=document.getElementById("catalogue");
+    buttons.forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
 
- if(liste.length===0){
-  catalogue.innerHTML=
-  '<p class="empty">Aucun jeu dans cette catégorie pour le moment.</p>';
-  return;
- }
-
- catalogue.innerHTML=liste.map(jeu=>`
-  <article class="card">
-   <div class="cover">
-    <span class="emoji">${jeu.emoji}</span>
-    <span>MAKANZIPRO GAMING</span>
-   </div>
-   <h3>${jeu.nom}</h3>
-   <p class="platform">${jeu.plateforme}</p>
-   <p class="description">${jeu.description}</p>
-   <a href="${jeu.recherche}" target="_blank"
-   rel="noopener noreferrer">EN SAVOIR PLUS</a>
-  </article>
- `).join("");
-}
-
-afficher();
+    filterGames();
+  });
+});
 </script>
+
 </body>
 </html>
