@@ -4,70 +4,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100b20">
+<meta name="theme-color" content="#10091d">
 <title>MAKANZIPRO GAMING</title>
+
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;background:#0b0814;color:white;
+ margin:0;background:#0b0712;color:white;
  font-family:Arial,sans-serif;
 }
 header{
- text-align:center;padding:30px 15px;
- background:linear-gradient(135deg,#180d35,#45108a,#100b20);
- border-bottom:2px solid #a855f7;
+ text-align:center;padding:32px 12px;
+ background:linear-gradient(135deg,#160b2d,#6320a0,#10091d);
+ border-bottom:2px solid #bd72ff;
 }
-header h1{color:#d8a7ff;font-size:30px;margin:5px}
-header p{color:#ddd}
-.logo{font-size:42px}
+.logo{font-size:48px}
+header h1{color:#e2bdff;font-size:29px;margin:8px}
+header p{color:#eee}
 .search{
- display:block;width:90%;max-width:500px;
+ display:block;width:90%;max-width:550px;
  margin:22px auto;padding:14px;
- border-radius:12px;border:1px solid #9b4dff;
- background:#171126;color:white;font-size:16px;
+ border-radius:12px;border:1px solid #a855f7;
+ background:#191126;color:white;font-size:16px;
 }
 .categories{
- display:flex;justify-content:center;flex-wrap:wrap;
- gap:9px;padding:10px;
+ display:flex;justify-content:center;
+ flex-wrap:wrap;gap:9px;padding:10px;
 }
 .categories button{
- background:#211436;color:white;border:1px solid #914cff;
+ background:#211532;color:white;
+ border:1px solid #914cff;
  padding:11px 16px;border-radius:20px;
 }
-.categories button.active,.categories button:hover{
+.categories button.active{
  background:#8b35e8;
 }
 h2{text-align:center;color:#d8a7ff}
 .catalogue{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:15px;padding:15px;max-width:1000px;margin:auto;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+ gap:15px;padding:15px;
+ max-width:1050px;margin:auto;
 }
 .card{
  background:#191326;border:1px solid #57328a;
- border-radius:15px;overflow:hidden;text-align:center;
- padding-bottom:15px;
+ border-radius:15px;overflow:hidden;
+ text-align:center;padding-bottom:16px;
 }
 .cover{
- height:120px;display:flex;align-items:center;
- justify-content:center;font-size:55px;
- background:linear-gradient(135deg,#34145b,#100b20);
+ height:175px;display:flex;
+ flex-direction:column;align-items:center;
+ justify-content:center;gap:10px;
+ background:linear-gradient(145deg,#55218a,#130b20);
+ border-bottom:2px solid #9b4dff;
 }
-.card h3{font-size:16px;padding:0 8px;min-height:38px}
-.card p{color:#c4b5d8;font-size:13px}
+.cover .emoji{font-size:55px}
+.cover span:last-child{
+ font-size:12px;letter-spacing:2px;color:#e5c9ff;
+}
+.card h3{font-size:16px;padding:0 9px}
+.description{
+ color:#c9bdd8;font-size:13px;
+ line-height:1.5;padding:0 12px;
+ min-height:75px;
+}
+.platform{
+ color:#d8a7ff;font-size:12px;
+ font-weight:bold;
+}
 .card a{
  display:inline-block;text-decoration:none;
  background:#8b35e8;color:white;
  padding:10px 13px;border-radius:9px;
  font-size:13px;font-weight:bold;
 }
-.card a:hover{background:#a855f7}
-.empty{text-align:center;color:#bba9d0;padding:25px}
+.card a:hover{background:#ad65f5}
+.empty{
+ text-align:center;color:#cbb8df;
+ padding:30px;grid-column:1/-1;
+}
 footer{
- text-align:center;padding:25px;color:#aaa;
- border-top:1px solid #392451;margin-top:30px;
+ text-align:center;padding:25px;
+ color:#aaa;border-top:1px solid #392451;
+ margin-top:30px;
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -93,52 +116,66 @@ footer{
 
 <footer>
  <h3>MAKANZIPRO GAMING</h3>
- <p>© 2026 - Tous droits réservés</p>
- <p>Play • Compete • Enjoy</p>
+ <p>PLAY • COMPETE • ENJOY</p>
+ <p>© 2026 MAKANZIPRO</p>
 </footer>
 
 <script>
 const jeux = [
- {
-  nom:"God of War: Ghost of Sparta",
-  categorie:"PSP",image:"⚔️",
-  lien:"https://www.romspedia.com/roms/playstation-portable/god-of-war-ghost-of-sparta-original/download?speed=fast"
- },
- {
-  nom:"LEGO Batman",
-  categorie:"PSP",image:"🦇",
-  lien:"https://www.romspedia.com/roms/playstation-portable/lego-batman-the-video-game/download?speed=fast"
- },
- {
-  nom:"Cars",
-  categorie:"PSP",image:"🏎️",
-  lien:"https://www.romspedia.com/roms/playstation-portable/cars-v1-02/download?speed=fast"
- },
- {
-  nom:"GTA Vice City Stories",
-  categorie:"PSP",image:"🚗",
-  lien:"https://www.romspedia.com/roms/playstation-portable/grand-theft-auto-vice-city-stories-europe-v1-02/download?speed=fast"
- },
- {
-  nom:"PS2 Football",
-  categorie:"PS2",image:"⚽",
-  lien:"https://modsfire.com/d/WpRB05ZE84Ma2D1"
- },
- {
-  nom:"Downhill Domination",
-  categorie:"PS2",image:"🚴",
-  lien:"https://www.romspedia.com/roms/playstation-2/downhill-domination/download?speed=fast"
- },
- {
-  nom:"Resident Evil 4",
-  categorie:"PS2",image:"🎮",
-  lien:"https://www.romspedia.com/roms/playstation-2/resident-evil-4/download?speed=fast"
- }
+{
+ nom:"God of War: Ghost of Sparta",
+ plateforme:"PSP",
+ emoji:"⚔️",
+ description:"Retrouve Kratos dans une aventure pleine d'action. Explore des lieux mystérieux et affronte de puissants adversaires.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=God+of+War+Ghost+of+Sparta"
+},
+{
+ nom:"LEGO Batman",
+ plateforme:"PSP",
+ emoji:"🦇",
+ description:"Rejoins Batman et Robin dans une aventure LEGO. Résous des énigmes et protège Gotham City.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=LEGO+Batman+The+Video+Game"
+},
+{
+ nom:"Cars",
+ plateforme:"PSP",
+ emoji:"🏎️",
+ description:"Retrouve Flash McQueen et participe à des courses dans l'univers de Cars.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=Cars+jeu+vidéo"
+},
+{
+ nom:"GTA Vice City Stories",
+ plateforme:"PSP",
+ emoji:"🚘",
+ description:"Découvre Vice City dans une aventure en monde ouvert avec Victor Vance.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=Grand+Theft+Auto+Vice+City+Stories"
+},
+{
+ nom:"PS2 Football",
+ plateforme:"PS2",
+ emoji:"⚽",
+ description:"Un jeu de football sur PlayStation 2. Découvre son édition et ses caractéristiques.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=Jeu+de+football+PlayStation+2"
+},
+{
+ nom:"Downhill Domination",
+ plateforme:"PS2",
+ emoji:"🚵",
+ description:"Participe à des courses de VTT rapides sur des pistes difficiles et réalise des figures.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=Downhill+Domination"
+},
+{
+ nom:"Resident Evil 4",
+ plateforme:"PS2",
+ emoji:"🧟",
+ description:"Leon Kennedy part en mission pour retrouver la fille du président dans une aventure de survie.",
+ recherche:"https://fr.wikipedia.org/w/index.php?search=Resident+Evil+4"
+}
 ];
 
 let categorieActive="TOUS";
 
-function filtrer(categorie, bouton){
+function filtrer(categorie,bouton){
  categorieActive=categorie;
  document.querySelectorAll(".categories button")
  .forEach(b=>b.classList.remove("active"));
@@ -152,24 +189,29 @@ function afficher(){
 
  const liste=jeux.filter(jeu=>{
   return (categorieActive==="TOUS" ||
-  jeu.categorie===categorieActive) &&
+  jeu.plateforme===categorieActive) &&
   jeu.nom.toLowerCase().includes(recherche);
  });
 
  const catalogue=document.getElementById("catalogue");
 
  if(liste.length===0){
-  catalogue.innerHTML='<p class="empty">Aucun jeu trouvé.</p>';
+  catalogue.innerHTML=
+  '<p class="empty">Aucun jeu dans cette catégorie pour le moment.</p>';
   return;
  }
 
  catalogue.innerHTML=liste.map(jeu=>`
   <article class="card">
-   <div class="cover">${jeu.image}</div>
+   <div class="cover">
+    <span class="emoji">${jeu.emoji}</span>
+    <span>MAKANZIPRO GAMING</span>
+   </div>
    <h3>${jeu.nom}</h3>
-   <p>${jeu.categorie}</p>
-   <a href="${jeu.lien}" target="_blank"
-   rel="noopener noreferrer">VOIR LE LIEN</a>
+   <p class="platform">${jeu.plateforme}</p>
+   <p class="description">${jeu.description}</p>
+   <a href="${jeu.recherche}" target="_blank"
+   rel="noopener noreferrer">EN SAVOIR PLUS</a>
   </article>
  `).join("");
 }
